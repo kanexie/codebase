@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="keywords" content="JS代码,{keyword},JS广告代码,JS特效代码" />
+<meta name="description" content="此代码内容为{title}，属于站长常用代码，更多{keyword}代码请访问懒人图库JS代码频道。" />
+<title>{title}_懒人图库</title>
+<script type="text/javascript" src="jquery.pack.js"></script>
+<script type="text/javascript" src="jQuery.blockUI.js"></script>
+<link href="default.css" rel="stylesheet" type="text/css">
+<link href="demo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="topBar">
+	<span class="nav">
+		<a href="index.html">返回首页</a>|<a id="showParam" href="javascript:(void)">查看参数</a>|<a href="demo.html">demo展示</a>|<a id="showContact" href="javascript:(void)">联系作者</a>
+	</span>
+	<h1 class="SuperSlide" id="logo"><a href="http://www.lanrentuku.com/">SuperSlide 1.2</a></h1><span class="author"> -- 大话主席</span>
+</div>
+
+<!-- content S -->
+<div id="content">
+		<table class="param" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+		    <th width="100">参数</th>
+		    <th width="80">默认值</th>
+			<th>说明</th>
+		  </tr>
+		  <tr>
+		    <td class="t">effect</td>
+			<td class="t">fade</td>
+		    <td class="intro">效果 ||  fade：渐显； ||   top：上滚动；||   left：左滚动；||  topLoop：上循环滚动；||   leftLoop：左循环滚动；||  topMarquee：上无缝循环滚动；||   leftMarquee：左无缝循环滚动；</td>
+		  </tr>
+		  <tr class="new">
+		    <td class="t">autoPage:</td>
+			<td class="t">false</td>
+		    <td class="intro">系统自动分页（v1.2新增） &nbsp;&nbsp;<a class="link" target="_balnk" href="demoEffect/6.1-autoPage-Intro.html">&gt;&gt;详解</a></td>
+		  </tr>
+		  <tr>
+		    <td class="t">titCell:</td>
+			<td class="t">.hd li</td>
+		    <td class="intro">导航元素--鼠标的触发元素 &nbsp;&nbsp;<a class="link" target="_balnk" href="images/cellIntro.gif">&gt;&gt;图解</a></td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">mainCell</td>
+			<td class="t">.bd</td>
+		    <td class="intro">内容元素的父层对象&nbsp;&nbsp;<a class="link" target="_balnk" href="images/cellIntro.gif">&gt;&gt;图解</a></td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">autoPlay</td>
+			<td class="t">false</td>
+		    <td class="intro">自动运行</td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">interTime</td>
+			<td class="t">2500（毫秒）</td>
+		    <td class="intro">自动运行间隔。当effect为无缝滚动的时候，相当于运行速度。</td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">delayTime</td>
+			<td class="t">500（毫秒）</td>
+		    <td class="intro">效果持续时间（一次效果执行所用的时间长度）。</td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">defaultIndex</td>
+			<td class="t">0</td>
+		    <td class="intro">默认的当前位置索引。0是第一个； defaultIndex:1 时，相当于从2个开始执行</td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">trigger</td>
+			<td class="t">mouseover</td>
+		    <td class="intro">触发方式 || mouseover：鼠标移过触发；|| click：鼠标点击触发；</td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">scroll</td>
+			<td class="t">1</td>
+		    <td class="intro">每次滚动个数。</td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">vis</td>
+			<td class="t">1</td>
+		    <td class="intro">visible，可视范围个数，当内容个数少于可视个数的时候，不执行效果。</td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">prevCell</td>
+			<td class="t">.prev</td>
+		    <td class="intro">前一个按钮元素。</td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">.nextCell</td>
+			<td class="t">.next</td>
+		    <td class="intro">后一个按钮元素。</td>
+		  </tr>
+
+		  <tr>
+		    <td class="t">titOnClassName</td>
+			<td class="t">on</td>
+		    <td class="intro">当前位置自动增加的class名称</td>
+		  </tr>
+		</table>
+		<div class="contact">
+		 大话主席 QQ：1216419047。 有bug，call我。
+		</div>
+		<script type="text/javascript">
+		jQuery("#showContact").click(function(){ jQuery(".contact").toggle(); });
+		jQuery("#showParam").click(function(){ jQuery(".param").toggle(); });</script>
+
+
+		<h1 class="topic">SuperSlide<i>v1.2</i></h1>
+
+		<!-- 渐显效果 S -->
+		<div class="indIntro">
+			<h2>SuperSlide 是致力于实现网站统一特效调用的函数，能解决大部分标签切换、焦点图切换等效果，还能多个slide组合创造更多的效果。（兼容ie内核(包括无敌的ie6)、webkit内核、ff、opera等主流浏览器）。</h2>
+			<a class="demoBtn down" href="demo.html"><em>代码预览</em></a>
+			<a href="demoEffect/6.1-autoPage-Intro.html" target="_blank" class="demoBtn down"><em>使用详解</em></a>
+		</div>
+		<!-- 渐显效果 E -->
+<p>作者：<a href="http://www.lanrentuku.com/" target="_blank">大话主席</a>　代码整理：<a href="http://www.lanrentuku.com/" target="_blank">懒人图库</a>　感谢：<a href="http://www.lanrentuku.com/" target="_blank">西西</a></p>
+<p>＊尊重他人劳动成果，转载请自觉注明出处！注：此代码仅供学习交流，请勿用于商业用途。</p>
+<p>{download}</p>
+<p>{content}</p>
+<p>{google_729x90}</p>
+
+</div>
+<!-- content E -->
+
+<div id="footer">Copyright &copy;2011-2012 大话主席 </div>
+
+</body>
+</html>
