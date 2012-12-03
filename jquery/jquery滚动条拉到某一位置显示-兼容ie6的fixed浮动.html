@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+		<title>top</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<style type="text/css">
+			.d1{height:200px;background-color:#333;}
+			.d2{height:20px;background-color:#999;}
+			.d3{height:2000px;background-color:#333;}
+			.d4{height:50px;width:50px;background-color:red;position:fixed;left:40%;top:40%;display:none;}
+		</style>
+		<!--[if IE 6]>
+			<style type="text/css">
+			body{background-image:url(about:blank);background-attachment:fixed;}
+			.d4{position:absolute;top:eval(document.documentElement.scrollTop);left:40%;}
+		</style>
+		<![endif]-->
+	</head>
+	<body>
+	<div class="d1"></div>
+	<div class="d2">БъЬт</div>
+	<div class="d3"></div>
+	<div class="d4">аќ</div>
+	</body>
+	<script type="text/javascript">
+	$().ready(function(){
+		var _defautlTop = $(".d2").offset().top;
+		$(window).scroll(function(){
+			if($(this).scrollTop() > _defautlTop){
+				$(".d4").show();
+			}else{
+				$(".d4").hide();
+			}
+		});
+	});
+	</script>
+</html>
