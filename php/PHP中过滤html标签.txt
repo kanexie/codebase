@@ -1,0 +1,29 @@
+平时用我们使用htmlspecialchars() 来过滤html, 但是把html的字符转义了,最后显示出来的就是html源代码.
+
+利用strip_tags()就可以把html标签去除掉.
+
+<?php
+
+$str = '<a href="#">href</a>';
+//echo htmlspecialchars($str);
+echo strip_tags($str);
+
+?>
+
+很多网站首页都有一片文章的一小部分.在这里就要使用strip_tags()把html标签去除掉.但但是汉字的话我们还要考虑是什么编码，因为正常切割字段串很容易把最后一个汉字切成一半.
+
+/** 
+ * 截取utf-8字符串 
+ * @since 2008.12.23 
+ * @param string $str 被截取的字符串 
+ * @param integer $start 起始位置 
+ * @param integer $length 截取长度(每个汉字为3字节) 
+ */ 
+function utf8_strcut($str, $start, $length=null) {  
+ preg_match_all('/./us', $str, $match);  
+ $chars = is_null($length)? array_slice($match[0], $start ) : array_slice($match[0], $start, $length);  
+ 
+ unset($str);
+ 
+ return implode('', $chars);  
+}  
